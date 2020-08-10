@@ -1,6 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const Container = styled.button`
+import { rotate } from '../../styles/animations';
+
+interface ButtonProps {
+  loading?: boolean;
+}
+
+export const Container = styled.button<ButtonProps>`
   background: #212121;
   height: 40px;
   border: 0;
@@ -10,8 +16,20 @@ export const Container = styled.button`
   font-weight: 600;
   margin-top: 32px;
   transition: opacity 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  ${props =>
+    props.loading &&
+    css`
+      opacity: 0.8;
+    `}
+  svg {
+    animation: ${rotate} 1s linear infinite;
+  }
 
   &:hover {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 `;
