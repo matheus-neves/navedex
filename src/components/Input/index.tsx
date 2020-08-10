@@ -29,6 +29,7 @@ const Input: React.FC<InputProps> = ({ name, label, ...rest }) => {
     <Container isErrored={!!error}>
       <label htmlFor={name}>{label}</label>
       <input defaultValue={defaultValue} id={name} ref={inputRef} {...rest} />
+      <span>{error}</span>
     </Container>
   );
 };

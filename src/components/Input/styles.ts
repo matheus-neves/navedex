@@ -5,6 +5,7 @@ interface ContainerProps {
 }
 
 export const Container = styled.div<ContainerProps>`
+  position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -37,12 +38,21 @@ export const Container = styled.div<ContainerProps>`
     }
   }
 
+  span {
+    font-size: 12px;
+    color: #c53030;
+    position: absolute;
+    top: 100%;
+  }
+
   ${props =>
     props.isErrored &&
     css`
+      label {
+        color: #c53030;
+      }
       input {
         border-color: #c53030;
-        color: #c53030;
       }
     `}
 `;
