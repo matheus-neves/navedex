@@ -8,13 +8,16 @@ export const NaversHeader = styled.header`
   justify-content: space-between;
   margin-bottom: 32px;
 
-  button {
+  a {
+    display: flex;
     background: #212121;
     color: #fff;
     font-weight: 600;
     font-size: 14px;
     line-height: 24px;
     margin-left: 32px;
+    justify-content: center;
+    align-items: center;
 
     width: 176px;
     height: 40px;
@@ -28,10 +31,6 @@ export const NaversHeader = styled.header`
 `;
 
 export const NaversList = styled.ul`
-  /* display: flex;
-  flex-direction: column;
-  flex-wrap: wrap; */
-
   display: grid;
   width: 100%;
   grid-template-columns: 1fr;
