@@ -14,7 +14,6 @@ export const Container = styled.button<ButtonProps>`
   color: #fff;
   width: 100%;
   font-weight: 600;
-  margin-top: 32px;
   transition: opacity 0.2s;
   display: flex;
   align-items: center;
