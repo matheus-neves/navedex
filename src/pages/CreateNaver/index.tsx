@@ -1,5 +1,5 @@
 import React, { useRef, useCallback, useState } from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 import { FormHandles } from '@unform/core';
@@ -9,6 +9,7 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import Header from '../../components/Header';
+import ModalMessage from '../../components/ModalMessage';
 
 import {
   Container,
@@ -29,10 +30,13 @@ interface CreateNaverFormData {
 
 const CreateNaver: React.FC = () => {
   const [loading, setLoading] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const formRef = useRef<FormHandles>(null);
 
-  const history = useHistory();
+  const toggleModal = useCallback(() => {
+    setModalOpen(!modalOpen);
+  }, [modalOpen]);
 
   const handleSubmit = useCallback(
     async (data: CreateNaverFormData) => {
@@ -55,8 +59,7 @@ const CreateNaver: React.FC = () => {
         });
 
         await api.post('/navers', data);
-
-        history.push('/home');
+        toggleModal();
       } catch (err) {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
@@ -71,12 +74,19 @@ const CreateNaver: React.FC = () => {
         setLoading(false);
       }
     },
-    [history],
+    [toggleModal],
   );
 
   return (
     <Container>
       <Header />
+
+      <ModalMessage
+        title="Naver criado"
+        text="Naver criado com sucesso!"
+        isOpen={modalOpen}
+        setIsOpen={toggleModal}
+      />
 
       <AnimationContainer>
         <div>
