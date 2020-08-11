@@ -42,4 +42,38 @@ export default createGlobalStyle`
     text-decoration: none;
   }
 
+  .ReactModal__Overlay {
+    opacity: 0;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .ReactModal__Overlay--after-open {
+    opacity: 1;
+  }
+
+  .ReactModal__Overlay--before-close {
+    opacity: 0;
+  }
+
+  .ReactModal__Content {
+
+    h2 {
+      display: block;
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    & > h2 {
+      margin-bottom: 24px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 36px;
+      font-weight: normal;
+    }
+
+  }
+
+
 `;
