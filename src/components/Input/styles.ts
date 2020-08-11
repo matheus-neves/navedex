@@ -9,10 +9,7 @@ export const Container = styled.div<ContainerProps>`
   display: flex;
   flex-direction: column;
   width: 100%;
-
-  & + div {
-    margin-top: 32px;
-  }
+  margin-bottom: 32px;
 
   label {
     font-size: 14px;

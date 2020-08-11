@@ -1,9 +1,4 @@
-import React, {
-  InputHTMLAttributes,
-  CSSProperties,
-  useRef,
-  useEffect,
-} from 'react';
+import React, { InputHTMLAttributes, useRef, useEffect } from 'react';
 import { useField } from '@unform/core';
 import { Container } from './styles';
 
