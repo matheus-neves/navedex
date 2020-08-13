@@ -60,7 +60,7 @@ To access the application layout, access this [link](https://www.figma.com/file/
 
 ## :memo: License
 
-This challenge is under license from MIT. See the archive [LICENSE](https://github.com/matheus-neves/navedex/LICENSE.md) for more details.
+This challenge is under license from MIT. See the archive [LICENSE](https://github.com/matheus-neves/navedex/blob/master/LICENSE.md) for more details.
 
 ---
 
