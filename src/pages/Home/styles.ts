@@ -1,5 +1,12 @@
 import styled from 'styled-components';
+
+import { TransitionGroup } from 'react-transition-group';
 import { Wrapper } from '../../styles/layout';
+import { rotate } from '../../styles/animations';
+
+interface NaverItemProps {
+  state: string;
+}
 
 export const Container = styled(Wrapper)``;
 
@@ -30,7 +37,16 @@ export const NaversHeader = styled.header`
   }
 `;
 
-export const NaversList = styled.ul`
+export const LoaderContainer = styled.div`
+  animation: ${rotate} 1s linear infinite;
+  width: 40px;
+  height: 40px;
+  margin: 0 auto;
+`;
+
+export const NaversList = styled(TransitionGroup).attrs({
+  component: 'ul',
+})`
   display: grid;
   width: 100%;
   grid-template-columns: 1fr;
@@ -82,6 +98,24 @@ export const NaversList = styled.ul`
     display: flex;
     + button {
       margin-left: 8px;
+    }
+  }
+`;
+
+export const NaverItem = styled.li<NaverItemProps>`
+  transition: opacity, transform, 0.6s cubic-bezier(0.5, 1, 0.89, 1);
+  opacity: ${({ state }) => (state === 'entered' ? 1 : 0)};
+  transform: translateY(${({ state }) => (state === 'entered' ? 0 : 150)}px);
+
+  img {
+    box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0);
+    transition: box-shadow 0.4s;
+    cursor: pointer;
+  }
+
+  &:hover {
+    img {
+      box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.45);
     }
   }
 `;
